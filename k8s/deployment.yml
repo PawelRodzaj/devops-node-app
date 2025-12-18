@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devops-node-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: devops-node
+  template:
+    metadata:
+      labels:
+        app: devops-node
+    spec:
+      containers:
+        - name: app
+          image: devops-node-app
+          ports:
+            - containerPort: 3000
